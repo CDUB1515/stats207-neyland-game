@@ -215,9 +215,9 @@ function resetSpritePositions(){
   if(arm) arm.style.transform = "";
 }
 
-function playScoreCutscene(points){
-  el.sprites.classList.remove("play-td");
-  void el.sprites.offsetWidth;
+function playScoreCutscene(points)
+{el.sceneCaption.textContent = "He breaks free and sprints INTO THE CHECKERBOARD!";
+ void el.sprites.offsetWidth;
   el.sprites.classList.add("play-td");
 
   if(points===7){
