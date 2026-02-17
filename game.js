@@ -174,9 +174,6 @@ const QUESTIONS = [
 
 { id:"q50", topic:"Mosaic Plot", q:"Mosaic plots compare:", choices:["Means","Spread","Two categorical variables","Two quantitative"], answer:2, explain:"Used for two categorical variables." }
 
-];
-
-];
 
 // Shuffle deck
 function shuffle(arr){
