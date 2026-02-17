@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stats 207 Exam 1 — Neyland Showdown (UT vs Alabama)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stadium" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="lights"></div>
+    <div class="stands">
+      <div class="crowd crowd-sparse"></div>
+      <div class="crowd crowd-sparse"></div>
+      <div class="crowd crowd-sparse"></div>
+    </div>
+    <div class="field">
+      <div class="checkerboard"></div>
+      <div class="yardlines"></div>
+      <div class="endzone endzone-left">TENNESSEE</div>
+      <div class="endzone endzone-right">ALABAMA</div>
+    </div>
+
+    <!-- Goalposts for victory animation -->
+    <div class="goalposts" id="goalposts">
+      <div class="post post-left"></div>
+      <div class="post post-right"></div>
+      <div class="crossbar"></div>
+      <div class="upright upright-left"></div>
+      <div class="upright upright-right"></div>
+    </div>
+
+    <!-- Fans storming overlay -->
+    <div class="storm" id="storm" aria-hidden="true"></div>
+  </div>
+
+  <main class="hud">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">T</div>
+        <div>
+          <div class="title">Stats 207 Exam 1 Study Game</div>
+          <div class="subtitle">Neyland (checked out) • UT vs Alabama • Final target: 52–49</div>
+        </div>
+      </div>
+
+      <div class="scoreboard" role="group" aria-label="Scoreboard">
+        <div class="team team-ut">
+          <div class="teamname">VOLUNTEERS</div>
+          <div class="score" id="utScore">0</div>
+        </div>
+        <div class="team team-bama">
+          <div class="teamname">CRIMSON TIDE</div>
+          <div class="score" id="bamaScore">49</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="statusrow">
+        <div class="status">
+          <div class="label">Correct Streak Toward Next Score</div>
+          <div class="meter">
+            <div class="meterbar" id="meterbar"></div>
+          </div>
+          <div class="small" id="streakText">0 / 5 correct</div>
+        </div>
+
+        <div class="status">
+          <div class="label">Drive Summary</div>
+          <div class="small" id="driveText">Answer questions to march downfield.</div>
+        </div>
+
+        <div class="status">
+          <div class="label">Scoring Progress</div>
+          <div class="small" id="progressText">Need 52 to win. TDs worth 7 until 49, then FG for 3.</div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="questionbox">
+          <div class="qmeta">
+            <span class="pill" id="qTopic">Topic</span>
+            <span class="pill pill-alt" id="qNumber">Question</span>
+          </div>
+          <h2 class="question" id="questionText">Loading…</h2>
+        </div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="controls">
+          <button class="btn" id="skipBtn" type="button">Skip (no penalty)</button>
+          <button class="btn btn-ghost" id="resetBtn" type="button">Reset Game</button>
+        </div>
+
+        <div class="log" id="log" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Animation stage -->
+    <section class="cutscene" aria-label="Celebration animations">
+      <div class="cutscene-inner">
+        <div class="scene-title" id="sceneTitle">—</div>
+
+        <div class="sprites" id="sprites">
+          <div class="sprite hyatt" id="hyatt" aria-label="Jalin Hyatt (cartoon)">
+            <div class="helmet"></div>
+            <div class="body"></div>
+            <div class="arm"></div>
+            <div class="leg leg1"></div>
+            <div class="leg leg2"></div>
+          </div>
+
+          <div class="sprite saban" id="saban" aria-label="Nick Saban (cartoon)">
+            <div class="cap"></div>
+            <div class="body"></div>
+            <div class="arm"></div>
+            <div class="leg leg1"></div>
+            <div class="leg leg2"></div>
+          </div>
+
+          <div class="burst" id="burst" aria-hidden="true">✨</div>
+        </div>
+
+        <div class="scene-caption" id="sceneCaption"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="small">
+        Tip: This is a study game — if you miss one, read the explanation and keep rolling.
+      </div>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
