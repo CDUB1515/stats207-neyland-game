@@ -381,7 +381,6 @@ body{
   filter: drop-shadow(0 10px 14px #00000066);
 }
 .hyatt{ left:18%; }
-.saban{ left:62%; }
 
 .sprite .helmet,
 .sprite .cap{
@@ -393,8 +392,6 @@ body{
   border:1px solid #ffffff22;
 }
 .hyatt .helmet{ background: #ff8200; }
-.saban .cap{
-  background: #20262f;
   border-radius:14px 14px 6px 6px;
 }
 
@@ -407,7 +404,6 @@ body{
   border:1px solid #ffffff22;
 }
 .hyatt .body{ background:#ff820033; border-color:#ff820055;}
-.saban .body{ background:#9e1b3220; border-color:#9e1b3244;}
 
 .sprite .arm{
   position:absolute;
@@ -416,8 +412,7 @@ body{
   border-radius:999px;
   border:1px solid #ffffff22;
 }
-.hyatt .arm{ left:44px; background:#ff820055; transform-origin:left center; }
-.saban .arm{ left:-6px; background:#ffffff14; }
+.hyatt .arm{ left:44px; background:#ff820055; transform-origin:left center; }}
 
 .sprite .leg{
   position:absolute;
@@ -452,18 +447,31 @@ body{
   60% { transform: translateY(-4px) rotate(-10deg); opacity: 1; }
   100% { transform: translateY(0) rotate(0deg); opacity: 1; }
 }
-
-@keyframes sabanReact {
-  0% { transform: scale(1) rotate(0deg); opacity: 1; }
-  50% { transform: scale(0.92) rotate(-6deg); opacity: 1; }
-  100% { transform: scale(0.88) rotate(-12deg); opacity: .9; }
-}
-}
 @keyframes burstPop{
   0%{ opacity:0; transform: scale(.6); }
   40%{ opacity:1; transform: scale(1.2); }
   100%{ opacity:0; transform: scale(1.0); }
 }
+@keyframes runToCheckerboard {
+  0% { transform: translateX(0); }
+  70% { transform: translateX(260px); }
+  100% { transform: translateX(280px) translateY(-10px) scale(1.05); }
+}
+
+@keyframes celebrateJump {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.play-td #hyatt {
+  animation: runToCheckerboard 900ms ease-out forwards;
+}
+
+.play-td #hyatt .body {
+  animation: celebrateJump 400ms ease-in-out 900ms;
+}
+
 
 /* Updated animation for football throw celebration */
 .play-td #hyatt {
