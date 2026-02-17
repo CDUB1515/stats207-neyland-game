@@ -608,5 +608,9 @@ body{
 .play-td #hyatt{
   animation: runToCheckerboardFull 1400ms linear forwards !important;
 }
+#hyatt{
+  position: absolute !important;
+  bottom: 14px !important;
+}
 
 
