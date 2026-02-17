@@ -415,11 +415,15 @@ body{
 
 .sprite .body{
   position:absolute;
-  top:28px; left:50%;
-  width:52px; height:52px;
+  top:28px;
+  left:50%;
+  width:52px;
+  height:52px;
   transform:translateX(-50%);
   border-radius:14px;
-  border:1px solid #ffffff22;
+  background:#ff8200;   /* solid Tennessee orange */
+  border:2px solid #ffffff55;
+}
 }
 .hyatt .body{ background:#ff820033; border-color:#ff820055;}
 
