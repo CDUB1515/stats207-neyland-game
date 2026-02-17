@@ -512,3 +512,10 @@ body{
   .statusrow{ grid-template-columns:1fr; }
   .scoreboard{ flex-direction:column; width:180px; }
 }
+/* Drive bar uses same component as meterbar */
+#driveBar{
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, #2dd4bf, #ff8200);
+  transition: width .25s ease;
+}
