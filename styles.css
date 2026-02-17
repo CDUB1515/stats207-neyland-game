@@ -439,19 +439,25 @@ body{
   transform: scale(.6);
 }
 
-/* Animations */
-@keyframes hyattCharge{
-  0%{ transform: translateX(0); }
-  100%{ transform: translateX(140px); }
+/* New football throw animation */
+@keyframes hyattCharge {
+  0% { transform: translateX(0); }
+  70% { transform: translateX(110px); }
+  100% { transform: translateX(100px) translateY(-12px) rotate(10deg); }
 }
-@keyframes stiffArm{
-  0%{ transform: rotate(0deg); }
-  35%{ transform: rotate(-28deg); }
-  100%{ transform: rotate(-22deg); }
+
+@keyframes throwMotion {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  30% { transform: translateY(-8px) rotate(20deg); opacity: 1; }
+  60% { transform: translateY(-4px) rotate(-10deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
 }
-@keyframes sabanFall{
-  0%{ transform: translateX(0) rotate(0deg); }
-  100%{ transform: translateX(120px) rotate(70deg); opacity:.92; }
+
+@keyframes sabanReact {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(0.92) rotate(-6deg); opacity: 1; }
+  100% { transform: scale(0.88) rotate(-12deg); opacity: .9; }
+}
 }
 @keyframes burstPop{
   0%{ opacity:0; transform: scale(.6); }
@@ -459,11 +465,17 @@ body{
   100%{ opacity:0; transform: scale(1.0); }
 }
 
-.play-td #hyatt{ animation: hyattCharge 650ms ease-out forwards; }
-.play-td #hyatt .arm{ animation: stiffArm 650ms ease-out forwards; }
-.play-td #saban{ animation: sabanFall 650ms ease-out forwards; }
-.play-td #burst{ animation: burstPop 700ms ease-out forwards; }
-
+/* Updated animation for football throw celebration */
+.play-td #hyatt {
+  animation: hyattCharge 700ms ease-out forwards;
+}
+.play-td #hyatt .body,
+.play-td #hyatt .arm {
+  animation: throwMotion 700ms ease-in-out forwards;
+}
+.play-td #saban {
+  animation: sabanReact 700ms ease-in-out forwards;
+}
 /* Goalposts + storming */
 .goalposts{
   position:absolute;
