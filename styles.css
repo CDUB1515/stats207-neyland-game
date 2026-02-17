@@ -573,3 +573,40 @@ body{
   background: linear-gradient(90deg, #2dd4bf, #ff8200);
   transition: width .25s ease;
 }
+/* FORCE Hyatt to look like an actual player */
+#hyatt .helmet{
+  background: #ff8200 !important;
+  border: 2px solid #ffffff66 !important;
+}
+
+#hyatt .body{
+  background: #ff8200 !important;      /* solid orange torso */
+  border: 2px solid #ffffff66 !important;
+  box-shadow: 0 6px 16px #00000066;
+}
+
+#hyatt .arm{
+  background: #ff8200 !important;
+  border: 2px solid #ffffff55 !important;
+}
+
+#hyatt .leg{
+  background: #ffffff22 !important;
+  border: 2px solid #ffffff33 !important;
+}
+/* Make sure Hyatt can move by left-position */
+#hyatt{
+  left: 6% !important;     /* starting spot */
+}
+
+/* Run across the entire cutscene box into the checkerboard */
+@keyframes runToCheckerboardFull {
+  0%   { left: 6%; }
+  100% { left: 78%; }  /* lands right before the checkerboard block */
+}
+
+.play-td #hyatt{
+  animation: runToCheckerboardFull 1400ms linear forwards !important;
+}
+
+
