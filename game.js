@@ -209,7 +209,6 @@ function lockAnswers(lock){
 
 function resetSpritePositions(){
   const hy = document.getElementById("hyatt");
-  const sa = document.getElementById("saban");
   if(hy) hy.style.transform = "";
   if(sa) sa.style.transform = "";
   const arm = hy?.querySelector(".arm");
