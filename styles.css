@@ -340,6 +340,24 @@ body{
   border:1px solid var(--line);
   border-radius:14px;
   backdrop-filter: blur(8px);
+  /* Checkerboard endzone inside cutscene */
+.mini-checkerboard{
+  position:absolute;
+  right:0;
+  top:0;
+  width:18%;
+  height:100%;
+  background:
+    linear-gradient(45deg, #ff8200 25%, transparent 25%),
+    linear-gradient(-45deg, #ff8200 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ff8200 75%),
+    linear-gradient(-45deg, transparent 75%, #ff8200 75%);
+  background-size: 36px 36px;
+  background-position: 0 0, 0 18px, 18px -18px, -18px 0;
+  opacity:.55;
+  border-left:1px solid #ffffff22;
+}
+
 }
 .cutscene-inner{
   border-radius:14px;
@@ -453,9 +471,21 @@ body{
   100%{ opacity:0; transform: scale(1.0); }
 }
 @keyframes runToCheckerboard {
-  0% { transform: translateX(0); }
-  70% { transform: translateX(260px); }
-  100% { transform: translateX(280px) translateY(-10px) scale(1.05); }
+  0% {
+    left: 6%;
+    transform: translateY(0) scale(1);
+  }
+  85% {
+    left: 78%;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    left: 82%;
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+.play-td #hyatt{
+  animation: runToCheckerboard 1100ms ease-out forwards;
 }
 
 @keyframes celebrateJump {
