@@ -73,74 +73,109 @@ const el = {
 
 // --- Question bank (keep yours; add more anytime) ---
 const QUESTIONS = [
-  // Two-way tables
-  { id:"twoway_1", topic:"Two-Way Tables",
-    q:"Promotions table:\nUp to 39: Promoted 24, Not 76 (Total 100)\n40+: Promoted 36, Not 64 (Total 100)\nOverall 200.\nWhat percent of ALL employees were promoted?",
-    choices:["12%","24%","30%","60%"], answer:2,
-    explain:"Total promoted=60. 60/200=30%." },
-  { id:"twoway_2", topic:"Conditional Percent",
-    q:"Using the same table, what percent of PROMOTED employees were 40 and over?",
-    choices:["40%","50%","60%","75%"], answer:2,
-    explain:"36/60=60%." },
 
-  // Mean/median/IQR
-  { id:"center_1", topic:"Mean",
-    q:"Data: 10, 12, 14, 9, 15, 11, 13, 16. What is the mean?",
-    choices:["12.5","12.0","13.0","11.5"], answer:0,
-    explain:"Sum=100. 100/8=12.5." },
-  { id:"center_2", topic:"Median",
-    q:"Data: 63, 68, 71, 71, 75, 80, 81. What is the median?",
-    choices:["71","72","75","74"], answer:0,
-    explain:"7 values → 4th value is 71." },
-  { id:"spread_1", topic:"IQR",
-    q:"Q1 = 18 and Q3 = 31. IQR = ?",
-    choices:["13","49","18","31"], answer:0,
-    explain:"31−18=13." },
+{ id:"q1", topic:"Mean", q:"Data: 4, 6, 8, 10, 12. What is the mean?", choices:["6","8","9","10"], answer:1, explain:"(4+6+8+10+12)/5 = 8." },
 
-  // Z scores / normal
-  { id:"z_1", topic:"Z-Score",
-    q:"Normal mean 6.0, SD 1.5. Value 8.4. z = ?",
-    choices:["1.60","1.40","−1.60","−1.40"], answer:0,
-    explain:"(8.4−6)/1.5=1.6." },
-  { id:"z_2", topic:"Z Interpretation",
-    q:"If z = 1.60, best interpretation is:",
-    choices:[
-      "1.60 minutes above mean",
-      "1.60 standard deviations above mean",
-      "60% wait longer",
-      "1.60 SD below mean"
-    ],
-    answer:1,
-    explain:"z is measured in SD units from the mean." },
+{ id:"q2", topic:"Median", q:"Data: 2, 3, 3, 7, 20. What is the median?", choices:["3","7","5","6"], answer:0, explain:"Middle value is 3." },
 
-  // Correlation/outliers
-  { id:"corr_1", topic:"Correlation",
-    q:"Before computing correlation r, the correct conditions are:",
-    choices:[
-      "Two quantitative; straight enough; no strong outliers",
-      "Two categorical; random; large n",
-      "Normal; equal variances; independent samples",
-      "One categorical + one quantitative; straight enough"
-    ],
-    answer:0,
-    explain:"Correlation needs 2 quantitative variables + roughly linear + no outliers." },
-  { id:"corr_2", topic:"Outliers & r",
-    q:"Adding an outlier to a scatterplot can:",
-    choices:[
-      "Only increase r",
-      "Only decrease r",
-      "Only flip sign",
-      "Cause any of these depending on location"
-    ],
-    answer:3,
-    explain:"Outliers can change r in multiple ways." },
+{ id:"q3", topic:"Outliers", q:"Adding a very large outlier mostly affects which measure?", choices:["Median","IQR","Mean","Mode"], answer:2, explain:"Mean is sensitive to outliers." },
 
-  // Variable types
-  { id:"type_1", topic:"Variable Types",
-    q:"Which is an identifier variable (I)?",
-    choices:["Number of gallons","Day of week","Transaction number","Type of gas"],
-    answer:2,
-    explain:"Transaction number is a label." },
+{ id:"q4", topic:"Skewness", q:"If mean > median, distribution is likely:", choices:["Symmetric","Left-skewed","Right-skewed","Uniform"], answer:2, explain:"Right skew pulls mean upward." },
+
+{ id:"q5", topic:"Symmetry", q:"In a symmetric distribution:", choices:["Mean > Median","Median > Mean","Mean = Median","Mean = 0"], answer:2, explain:"They are equal in symmetry." },
+
+{ id:"q6", topic:"Mean", q:"Data: 5, 6, 7, 8. What is the mean?", choices:["6.5","6","7","5.5"], answer:0, explain:"(5+6+7+8)/4 = 6.5." },
+
+{ id:"q7", topic:"Median", q:"Why is the median resistant?", choices:["Uses all values","Not affected much by outliers","Equals mean","Largest value"], answer:1, explain:"Median is not pulled by extremes." },
+
+{ id:"q8", topic:"Mean", q:"If all values increase by 5, the mean:", choices:["Stays same","Decreases","Increases by 5","Doubles"], answer:2, explain:"Mean shifts by same constant." },
+
+{ id:"q9", topic:"Outliers", q:"If one extreme value increases greatly, the median:", choices:["Changes drastically","Stays mostly same","Doubles","Becomes undefined"], answer:1, explain:"Median resistant to extremes." },
+
+{ id:"q10", topic:"Mode", q:"Mode is:", choices:["Middle value","Average","Most frequent value","Largest value"], answer:2, explain:"Mode = most common value." },
+
+{ id:"q11", topic:"IQR", q:"IQR measures:", choices:["Total range","Spread of middle 50%","Mean difference","Skewness"], answer:1, explain:"IQR = Q3 - Q1." },
+
+{ id:"q12", topic:"IQR", q:"Q1 = 12, Q3 = 25. IQR = ?", choices:["13","37","25","12"], answer:0, explain:"25 − 12 = 13." },
+
+{ id:"q13", topic:"Outliers", q:"Outliers are typically defined using:", choices:["1 SD","2 SD","1.5 × IQR rule","Mean ± IQR"], answer:2, explain:"1.5×IQR rule defines fences." },
+
+{ id:"q14", topic:"Range", q:"Range is:", choices:["Q3 − Q1","Max − Min","Mean difference","Median spread"], answer:1, explain:"Range = max − min." },
+
+{ id:"q15", topic:"Outliers", q:"Data: 2,4,6,8,20. Likely outlier?", choices:["8","6","20","4"], answer:2, explain:"20 is extreme." },
+
+{ id:"q16", topic:"Standard Deviation", q:"Standard deviation measures:", choices:["Skewness","Spread around mean","Middle 50%","Range only"], answer:1, explain:"SD measures spread from mean." },
+
+{ id:"q17", topic:"Skewness", q:"If data are skewed right, best spread measure:", choices:["SD","Variance","IQR","Range"], answer:2, explain:"Use IQR for skewed data." },
+
+{ id:"q18", topic:"Standard Deviation", q:"Large SD means:", choices:["Tight clustering","High variability","Symmetry","Small range"], answer:1, explain:"Large SD = wide spread." },
+
+{ id:"q19", topic:"IQR", q:"Q1 = 10, Q3 = 18. Upper fence = ?", choices:["28","30","30.5","26"], answer:1, explain:"IQR=8; 18 + 1.5(8)=30." },
+
+{ id:"q20", topic:"IQR", q:"IQR is resistant to:", choices:["Outliers","Mean","Sample size","Median"], answer:0, explain:"IQR ignores extremes." },
+
+{ id:"q21", topic:"Skewness", q:"Right skewed distribution has:", choices:["Tail left","Tail right","Symmetry","Uniform shape"], answer:1, explain:"Right skew = long right tail." },
+
+{ id:"q22", topic:"Skewness", q:"Left skewed data typically has:", choices:["Mean < Median","Mean > Median","Equal values","No tail"], answer:0, explain:"Left skew pulls mean down." },
+
+{ id:"q23", topic:"Skewness", q:"Income distributions are usually:", choices:["Symmetric","Left-skewed","Right-skewed","Uniform"], answer:2, explain:"High earners stretch right tail." },
+
+{ id:"q24", topic:"Center", q:"Best center for skewed data:", choices:["Mean","Median","Mode","Range"], answer:1, explain:"Median is resistant." },
+
+{ id:"q25", topic:"Skewness", q:"Skewness affects which most?", choices:["Median","Mean","IQR","Q1"], answer:1, explain:"Mean moves toward tail." },
+
+{ id:"q26", topic:"Types of Data", q:"Type of gas is:", choices:["Quantitative","Categorical","Continuous","Identifier"], answer:1, explain:"Gas type is categorical." },
+
+{ id:"q27", topic:"Types of Data", q:"Number of gallons purchased:", choices:["Categorical","Identifier","Quantitative","Nominal"], answer:2, explain:"Measured numeric value." },
+
+{ id:"q28", topic:"Types of Data", q:"Transaction number is:", choices:["Quantitative","Continuous","Identifier","Ordinal"], answer:2, explain:"Label only." },
+
+{ id:"q29", topic:"Types of Data", q:"Day of week is:", choices:["Quantitative","Categorical","Continuous","Numeric"], answer:1, explain:"Categorical variable." },
+
+{ id:"q30", topic:"Types of Data", q:"Height in inches is:", choices:["Categorical","Quantitative","Identifier","Nominal"], answer:1, explain:"Numeric measurement." },
+
+{ id:"q31", topic:"Types of Data", q:"GPA is:", choices:["Quantitative","Categorical","Identifier","Nominal"], answer:0, explain:"Numeric scale." },
+
+{ id:"q32", topic:"Types of Data", q:"Gender is:", choices:["Quantitative","Categorical","Continuous","Ratio"], answer:1, explain:"Categorical variable." },
+
+{ id:"q33", topic:"Correlation", q:"Correlation requires:", choices:["Two categorical","Two quantitative","One categorical","Any two"], answer:1, explain:"r requires two quantitative variables." },
+
+{ id:"q34", topic:"Correlation", q:"r close to +1 indicates:", choices:["Strong positive linear","No relationship","Strong negative","Nonlinear"], answer:0, explain:"Positive strong linear relationship." },
+
+{ id:"q35", topic:"Correlation", q:"r close to 0 means:", choices:["No linear relationship","No relationship at all","Strong curve","Perfect fit"], answer:0, explain:"No linear association." },
+
+{ id:"q36", topic:"Correlation", q:"Correlation implies causation?", choices:["Yes","No","Always","Sometimes"], answer:1, explain:"Correlation ≠ causation." },
+
+{ id:"q37", topic:"Outliers", q:"Outliers can:", choices:["Increase r","Decrease r","Flip sign","All of the above"], answer:3, explain:"Depends on position." },
+
+{ id:"q38", topic:"Correlation", q:"Before computing r, check:", choices:["Two quantitative","Straight enough","No strong outliers","All of the above"], answer:3, explain:"All three conditions required." },
+
+{ id:"q39", topic:"Z-Score", q:"z = (x − μ)/σ measures:", choices:["Distance in units","Distance in SD units","Probability","Mean"], answer:1, explain:"Measured in SD units." },
+
+{ id:"q40", topic:"Z-Score", q:"z = 2 means:", choices:["2 units above mean","2 SD above mean","2% above","2 below"], answer:1, explain:"2 standard deviations above mean." },
+
+{ id:"q41", topic:"Normal Rule", q:"About 68% fall within:", choices:["±2 SD","±1 SD","±3 SD","IQR"], answer:1, explain:"68% rule." },
+
+{ id:"q42", topic:"Normal Rule", q:"About 95% fall within:", choices:["±1 SD","±2 SD","±3 SD","±4 SD"], answer:1, explain:"95% rule." },
+
+{ id:"q43", topic:"Z-Score", q:"z = −1.5 means:", choices:["1.5 SD below mean","1.5 above","15% below","Negative mean"], answer:0, explain:"Negative means below mean." },
+
+{ id:"q44", topic:"Z-Score", q:"If z = 0:", choices:["Maximum","Minimum","At mean","Outlier"], answer:2, explain:"Exactly at mean." },
+
+{ id:"q45", topic:"Normal Rule", q:"Value 2 SD above mean is roughly percentile:", choices:["50%","68%","97.5%","84%"], answer:2, explain:"Upper 2.5% tail." },
+
+{ id:"q46", topic:"Two-Way Tables", q:"Conditional percent uses:", choices:["Total sample","Row/column total","Mean","SD"], answer:1, explain:"Condition on row or column." },
+
+{ id:"q47", topic:"Percentages", q:"30 of 100 males prefer A. Percent?", choices:["30%","70%","0.3%","3%"], answer:0, explain:"30/100 = 30%." },
+
+{ id:"q48", topic:"Percentages", q:"60 of 200 promoted. Percent?", choices:["60%","30%","20%","15%"], answer:1, explain:"60/200 = 30%." },
+
+{ id:"q49", topic:"Mosaic Plot", q:"If conditional distributions differ, variables likely:", choices:["Independent","Related","Symmetric","Equal"], answer:1, explain:"Different distributions imply relationship." },
+
+{ id:"q50", topic:"Mosaic Plot", q:"Mosaic plots compare:", choices:["Means","Spread","Two categorical variables","Two quantitative"], answer:2, explain:"Used for two categorical variables." }
+
+];
+
 ];
 
 // Shuffle deck
